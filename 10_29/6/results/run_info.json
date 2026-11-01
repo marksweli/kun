@@ -1,0 +1,23 @@
+{
+ "h_in": 16452.77779375866,
+ "Re": 18377677.96983676,
+ "Pr": 0.7300726224320415,
+ "T_surface_steady": 1314.2808842352806,
+ "T_interface_steady": 1274.8988361076908,
+ "busso_h_30h_unaccelerated_um": 1.3966561731258056,
+ "TGO_acceleration_factor": 4.295974997605615,
+ "n_cells": 30449,
+ "n_dofs_u": 32416,
+ "crack_tip": [
+  2.5,
+  5134.330127018922
+ ],
+ "x_offpeak": 2.0,
+ "sample_cells": {
+  "peak": 25240,
+  "off_peak": 5741,
+  "mid": 26475,
+  "off_valley": 23019,
+  "valley": 22701
+ }
+}

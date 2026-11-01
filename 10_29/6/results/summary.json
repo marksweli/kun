@@ -1,0 +1,207 @@
+{
+ "run_info": {
+  "h_in": 16452.77779375866,
+  "Re": 18377677.96983676,
+  "Pr": 0.7300726224320415,
+  "T_surface_steady": 1314.2808842352806,
+  "T_interface_steady": 1274.8988361076908,
+  "busso_h_30h_unaccelerated_um": 1.3966561731258056,
+  "TGO_acceleration_factor": 4.295974997605615,
+  "n_cells": 30449,
+  "n_dofs_u": 32416,
+  "crack_tip": [
+   2.5,
+   5134.330127018922
+  ],
+  "x_offpeak": 2.0,
+  "sample_cells": {
+   "peak": 25240,
+   "off_peak": 5741,
+   "mid": 26475,
+   "off_valley": 23019,
+   "valley": 22701
+  }
+ },
+ "crack_length_per_cycle": [
+  {
+   "cycle": 1,
+   "h_tgo_um": 1.939,
+   "crack_length_um": 2.353,
+   "angle_deg": 27.7
+  },
+  {
+   "cycle": 2,
+   "h_tgo_um": 2.441,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 3,
+   "h_tgo_um": 2.793,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 4,
+   "h_tgo_um": 3.073,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 5,
+   "h_tgo_um": 3.309,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 6,
+   "h_tgo_um": 3.515,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 7,
+   "h_tgo_um": 3.7,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 8,
+   "h_tgo_um": 3.868,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 9,
+   "h_tgo_um": 4.022,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 10,
+   "h_tgo_um": 4.165,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 11,
+   "h_tgo_um": 4.299,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 12,
+   "h_tgo_um": 4.425,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 13,
+   "h_tgo_um": 4.544,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 14,
+   "h_tgo_um": 4.657,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 15,
+   "h_tgo_um": 4.765,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 16,
+   "h_tgo_um": 4.869,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 17,
+   "h_tgo_um": 4.968,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 18,
+   "h_tgo_um": 5.063,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 19,
+   "h_tgo_um": 5.154,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 20,
+   "h_tgo_um": 5.243,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 21,
+   "h_tgo_um": 5.329,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 22,
+   "h_tgo_um": 5.411,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 23,
+   "h_tgo_um": 5.492,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 24,
+   "h_tgo_um": 5.57,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 25,
+   "h_tgo_um": 5.646,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 26,
+   "h_tgo_um": 5.72,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 27,
+   "h_tgo_um": 5.792,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 28,
+   "h_tgo_um": 5.863,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 29,
+   "h_tgo_um": 5.931,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  },
+  {
+   "cycle": 30,
+   "h_tgo_um": 5.998,
+   "crack_length_um": 2.655,
+   "angle_deg": 26.6
+  }
+ ]
+}
