@@ -1,73 +1,108 @@
 # Case A 复现（FEniCSx 0.11）：TBC 界面 off-peak 预制裂纹的相场扩展模拟
 
-参考论文：`10_29/6.md`（APS-TBC 多物理场分层失效，Sect. 3–4，Table 1–7）。
-耦合：**off-peak 水平预制裂纹 + 相场损伤 + TGO 连续生长（BC→TGO 材料切换）+ 厚度方向热梯度 + TC 烧结/蠕变松弛**。
+参考论文：`10_29/6.md`（APS-TBC 多物理场分层失效，Sect. 3–4，Table 1–7，Fig. 3）。
+耦合：**off-peak 水平预制裂纹 + 相场损伤 + TGO 连续生长（BC→TGO 材料切换）+ 厚度方向传热（heat transfer input）+ TC 烧结/蠕变松弛**。
 
 ## 文件
 
 | 文件 | 说明 |
 |---|---|
 | `mesh_tbc.py` | Gmsh 几何/网格（半周期单元、正弦界面、预制裂纹、加密区） |
-| `tbc_phasefield_caseA.py` | 主求解器（热传导 → TGO 生长/烧结 → 力学-蠕变-相场交错迭代） |
+| `tbc_phasefield_caseA.py` | 主求解器（传热 → TGO 生长/烧结 → 力学-蠕变-相场交错迭代） |
 | `postprocess.py` | 后处理与绘图 |
-| `tbc_caseA.msh` | 生成的网格（30 449 个 P1 三角形） |
+| `tbc_caseA.msh` | 网格（30 449 个三角形；位移 P2 共 125 730 个自由度） |
 | `run_caseA.log` | 30 个循环的完整运行日志 |
-| `results/history_caseA.csv` | 时间历程：界面温度、δ、TGO 厚度、裂纹长度/角度、采样点 σ1/σ22 |
-| `results/crack_length_per_cycle.csv`, `summary.json`, `run_info.json` | 每个循环的裂纹长度、热分析标定量 |
-| `results/fields_caseA.xdmf/.h5` | 每个循环加热结束/循环结束时的场（T, u, d, σ1, σ22, 材料），可用 ParaView 打开 |
-| `results/snapshots/*.npz` | 各循环快照（绘图用） |
-| `results/figures/*.png` | 网格、热梯度、历程、相场（对应 Fig. 10）、损伤主应力（对应 Fig. 11）、σ22 |
+| `results/history_caseA.csv` | 时间历程：燃气/界面温度、δ、TGO 厚度、裂纹扩展长度/角度、界面分支检测量、采样点 σ1/σ22 |
+| `results/crack_length_per_cycle.csv`, `summary.json`, `run_info.json` | 每个循环的裂纹扩展长度、标定参数 |
+| `results/fields_caseA.xdmf/.h5` | 每个循环加热结束/冷却结束时的场（T, u, d, σ1, σ22, 材料），可用 ParaView 打开 |
+| `results/snapshots/*.npz` | 快照（绘图用） |
+| `results/figures/*.png` | 网格、热循环（Fig. 3）、热梯度、历程、相场（Fig. 10）、损伤主应力（Fig. 11）、σ22 |
 
-运行：
+运行（单核约 1.3 h）：
 ```bash
 micromamba create -n fenicsx -c conda-forge python=3.12 fenics-dolfinx mpich petsc4py python-gmsh matplotlib scipy
-python tbc_phasefield_caseA.py 30     # 2 核 CPU 约 15 分钟
+python tbc_phasefield_caseA.py 30
 python postprocess.py
 ```
 
 ## 模型
 
-**几何/边界（Fig. 2、Fig. 9）**：宽 $W=12\,\mu m$（半波长，$\lambda=24\,\mu m$），界面 $y_I(x)=5130+5\cos(2\pi x/\lambda)$（峰谷差 $10\,\mu m$，AR=10/24）；
-TC 250 µm / BC 130 µm（含初始 TGO 1 µm）/ 基体 5 mm。左侧 $x=0$（波峰）对称 $u_x=0$；底部滚动支座 $u_y=0$；顶面气压 3.5 MPa；右侧规定位移
+**几何/边界（Fig. 2、Fig. 9）**：宽 $W=12\,\mu m$（半波长，$\lambda=24\,\mu m$），界面 $y_I(x)=5130+5\cos(2\pi x/\lambda)$（AR=10/24）；
+TC 250 µm / BC 130 µm（含初始 TGO 1 µm）/ 基体 5 mm。左侧（波峰）对称 $u_x=0$；底部 $u_y=0$；顶面气压 3.5 MPa（随燃气温度同步加载）；右侧规定位移
 
-$$\delta=\frac{W}{H}\int_0^{H}\alpha(T)\,(T-T_{ref})\,dy\quad(\text{Eq. 7 的连续形式，随热梯度变化})$$
+$$\delta=\frac{W}{H}\int_0^{H}\alpha(T)\,(T-T_{ref})\,dy\qquad(\text{Eq. 7 的连续形式})$$
 
-面外应变取 $\varepsilon_{zz}=\delta/W$（广义平面应变近似）。
-**预制裂纹**：off-peak 位于距波峰 $W/6=2\,\mu m$ 处；水平、长 0.5 µm、宽 0.06 µm、方形裂尖，左端与 TC/TGO 界面相交，仅从 TC 中切除。裂纹扩展区网格 $h=0.03\,\mu m=l_{int}/2$，TGO 生长带网格 0.2 µm。
+面外应变取 $\varepsilon_{zz}=\delta/W$（广义平面应变）。
+**预制裂纹**：off-peak，距波峰 $W/6=2\,\mu m$；水平、长 0.5 µm、宽 0.06 µm、方形裂尖，左端与 TC/TGO 界面相交，只从 TC 中切除。裂纹区网格 $h=0.03\,\mu m=l_{int}/2$。
 
-**热传导**：$\rho c_p\dot T=\nabla\cdot(k\nabla T)$，顶面 $q=h_{in}(T_{gas}-T)$，底面 $q=h_{cool}(T_{cool}-T)$，侧面绝热。$h_{in}$ 由 Eq. 10（湍流，$Re=1.84\times10^7$）算得 $16\,453\ W/m^2K$，$h_{cool}=420$，$T_{gas}=1323\,K$，$T_{cool}=923\,K$。
-得到 TC 表面 **1314 K**、TC/TGO 界面 **1275 K**（论文为 1313 K / 约 1271 K）。
-每个循环 3600 s：升温 300 s → 保温至 3100 s（对流换热）→ 300 s 等温线性降温至 293 K → 室温保持 200 s。
+**离散**：位移采用 **P2 二次三角形单元**（论文为 8 节点二次四边形），温度和相场采用 P1；蠕变应变、烧结时间、历史场 $\mathcal H$ 等内变量存于每个单元的 3 个 2 阶积分点上。
 
-**TGO 生长**（Eq. 4）：$h=K A_0 t_{eq}^{m}$，$m=0.332$，等效氧化时间按 Arrhenius（$Q_0=76.7$ kJ/mol）随界面温度累积；按论文的加速设定取 $K$，使 30 个循环后 $h=6\,\mu m$（$K\approx4.3$）。BC 单元形心到界面的竖直距离 $\le h$ 时切换为 TGO（导热和力学性能同时切换），并在切换时刻令该单元无应力（即蠕变消除切换应力）。
+**传热（Table 4 按原表顺序：基体 / BC / TGO / TC）**
 
-**蠕变**（Table 3）：J2-Norton $\dot{\boldsymbol\varepsilon}^{cr}=\tfrac32A\sigma_{vm}^{n-1}\mathbf s$，在 1123 K 以上激活；BC 的 $A(T)$ 由 1273/1423 K 两点按 Arrhenius 插值；采用隐式（向后 Euler）径向返回 $r+3G\Delta tA(r\sigma^{tr}_{vm})^{n-1}r=1$。
+| | 基体 | BC | TGO | TC |
+|---|---|---|---|---|
+| $k$ [W/mK] | 0.9 | 15.5 | 15.1 | 80 |
+| $C_p$ [J/kgK] | 650 | 880 | 610 | 460 |
+| $\rho$ [kg/m³] | 6000 | 3970 | 7500 | 8700 |
 
-**TC 烧结**（时间-温度等效）：$E_{TC}=E_{dep}(T)\,[1+(F-1)S]$，$\varepsilon^{sint}=-\varepsilon_s S$，$S=1-\exp(-\sqrt{t_{eq}/t_c})$。
+控制方程为 $\rho c_p\dot T=\nabla\cdot(k\nabla T)$。顶面边界 $q=h_{in}(T_{gas}-T)$，其中 $h_{in}=16\,453$ W/m²K（Eq. 10，$Re=1.84\times10^7$）；底面边界 $q=h_{cool}(T_{cool}-T)$，$h_{cool}=420$。
+按此表计算，稳态时 TC 表面为 1320 K，TC/TGO 界面为 1319.8 K。由于 TC 导热系数为 80，温降主要集中在 5 mm 的基体中。
+
+**热循环（Fig. 3，heat transfer input）**
+- 0–100 s 为室温。之后每个循环 3600 s，其中加热 3100 s、冷却 500 s；第 $n$ 个循环结束于 $3600n+100$ s，例如第 1 圈结束于 3700 s，第 2 圈结束于 7300 s。
+- 加热与冷却都通过对流换热实现。燃气温度与冷却空气温度按 Fig. 3 红线的形状变化：
+
+$$T_{gas}=293+(1323-293)f,\quad f=\begin{cases}1-e^{-\tau/8\,s}&\text{加热}\\ e^{-(\tau-3100)/40\,s}&\text{冷却}\end{cases}$$
+
+  得到的界面温度曲线见 `fig_thermal_cycle.png`：约 30 s 内升到保温温度，冷却约 100 s 后降到 430 K，约 300 s 后回到室温。
+
+**TGO 生长（Eq. 4）**
+- 按论文 “accelerated to 6 µm in the first 30 h at 1343 K”，采用以 1343 K 为基准的 Arrhenius 等效时间：$dt_{eq}=dt\,e^{-\frac{Q_0}{Rm}(\frac1T-\frac1{1343})}$，$h=\max\!\big(1,\,6\,(t_{eq}/30\,\text{h})^{0.332}\big)$。
+- 只在加热段生长。
+- BC 单元形心落入 $h$ 内时切换为 TGO，并在切换时刻令其无应力（论文：“creep model eliminates the stress induced by the material switch”）。
+
+**蠕变（Table 3）**：采用 J2-Norton 定律，1123 K 以上激活，隐式径向返回。
+
+**TC 烧结**（论文没有给出参数，本文按 Case A 的裂纹历程标定）：
+
+$$E_{TC}=E_{dep}(T)\,[1+(F-1)S],\quad \varepsilon^{sint}=-\varepsilon_s S,\quad S=1-\exp[-(t_{eq}/t_c)^{N}]$$
+
+取 $F=1.5$，$N=4$（Avrami 型），$t_c=1$ h（以 1373 K 为基准，$Q_s=200$ kJ/mol），$\varepsilon_s=10^{-3}$。
+在约 1320 K 下，$S$ 在第 1/2/3/5 圈约为 0.03 / 0.41 / 0.93 / 1.0，即模量主要在第 2–3 圈增大，随后饱和。
 
 **相场**（Miehe 2015 应力型，Table 6）：
 
 $$\tau\dot d=(1-d)\mathcal H-(d-l^2\Delta d),\qquad \mathcal H=\max_t\ \zeta\Big\langle\sum_{i=1}^{2}\Big(\frac{\langle\tilde\sigma_i\rangle}{\sigma_c}\Big)^2-1\Big\rangle$$
 
-$\sigma_c=300$ MPa，$\zeta=0.2$，$l=0.06\,\mu m$，$\tau=1$ s，$\boldsymbol\sigma=[(1-d)^2+k]\tilde{\boldsymbol\sigma}$。损伤驱动力只施加在 TC 中。
-力学/蠕变/相场在每个时间步内交错迭代至收敛，并在单步 $\Delta d>0.2$ 时自动减小步长。
+- 参数：$\sigma_c=300$ MPa，$\zeta=0.2$，$l=0.06\,\mu m$，$\tau=1$ s，$\boldsymbol\sigma=[(1-d)^2+10^{-6}]\tilde{\boldsymbol\sigma}$。
+- **裂纹只在 TC 中扩展**：TGO/BC 不施加驱动力；紧贴 TC/TGO 界面、厚 0.15 µm 的一层 TC 同样不施加驱动力。这样裂纹不会穿透 TGO，也不会在裂纹口沿界面向波峰方向产生分支。
+- 力学、蠕变和相场在每个时间步内交错迭代至收敛（上限 300 次）。单步 $\Delta d>0.2$ 时，时间步自动减半。
 
 ## 结果（30 个循环）
 
-| 循环 | 1 | 2 | 3 | 7 | 30 |
-|---|---|---|---|---|---|
-| TGO 厚度 [µm] | 1.94 | 2.44 | 2.79 | 3.70 | 6.00 |
-| 裂纹长度（d≥0.9）[µm] | 2.35 | 2.65 | 2.65 | 2.65 | 2.65 |
+见下表与 `results/figures/fig_crack_length_per_cycle.png`。
 
-- 裂纹从方形裂尖向**右上方**（约 27°）扩展，扩展只发生在**冷却阶段**；之后在第 2 个循环继续扩展，从第 3 个循环起止裂。止裂原因是 TGO 增厚后，最大第一主应力沿界面从波峰向 mid-level 迁移（见 `fig11_damaged_sigma1.png`、`fig_stress_history_sampling_points.png`）。这与论文 Case A 的结论一致（论文：0.58→1.48→1.97 µm，第 7 个循环止裂）。
-- 后期 mid-level 处的 σ1 随循环增加（达到约 180 MPa），反映了 TC 烧结硬化的影响，这也与论文结论一致。
-- 与论文的差异：本模型第 1 个循环的扩展量偏大，最终长度约 2.65 µm（论文约 2 µm）；另外在裂纹口处，沿 TC/TGO 界面朝波峰方向还出现了一条短的界面分支（界面分层）。
+| 循环 | TGO 厚度 [µm] | 本模型扩展量 [µm] | 论文 [µm] |
+|---|---|---|---|
+| 1 | 1.715 | 0.645 | 0.58 |
+| 2 | 2.158 | 1.470 | 1.48 |
+| 3 | 2.469 | 2.056 | 1.97 |
+| 4 | 2.717 | 2.086 | – |
+| 7 | 3.271 | 2.086 | 1.97（止裂） |
+| 10 | 3.683 | 2.086 | – |
+| 20 | 4.635 | 2.086 | – |
+| 30 | 5.303 | 2.086 | 1.97 |
 
-## 假设（论文未给出或无法直接对应的部分）
+计算条件：2 核 CPU，30 圈墙钟时间约 4775 s。完整日志见 `run_caseA.log`。
 
-1. Table 4 的列顺序与物理量明显颠倒（例如密度 6000 kg/m³ 应属于 YSZ），因此按 TC/TGO/BC/基体的顺序反向使用。
-2. 热循环的波形（Fig. 3 未给出）：升温 300 s，降温 300 s，然后室温保持 200 s；气压随加热过程施加，冷却时卸载。
-3. 广义平面应变近似为 $\varepsilon_{zz}=\delta/W$；采用 P1 位移单元（论文为二次四边形单元）。
-4. 烧结参数（论文未给出数值）：$F=2$，$\varepsilon_s=0.2\%$，$Q_s=200$ kJ/mol，$t_c=20$ h（1373 K）。TGO/TC 的蠕变系数在 1123 K 以上取常数。
-5. 相场驱动力只取面内主应力，且只在 TC 中施加；损伤对整个应力张量进行退化。
-6. 文中所称“损伤第一主应力”在本代码中定义为 $g(d)\,\sigma_1$；同时也输出了 $\tilde\sigma_1\cdot d$（XDMF 中的 `sigma1_x_d`）。
+- 裂纹从方形裂尖向**右上方**（约 9–11°）扩展，**只位于 TC 内**。裂纹口左侧没有界面分支：历程文件中 `branch_d_left` 列始终约为 0。
+- 扩展只发生在冷却段。各圈扩展量的趋势与论文一致：第 1 圈约 0.6 µm，第 2–3 圈扩展最快；之后由于 TGO 增厚，最大第一主应力从波峰迁移到 mid-level（`fig11_damaged_sigma1.png`），裂尖应力下降，裂纹停止扩展。
+- 与论文的差异：本模型在第 4 圈后即完全止裂（论文为第 7 圈），最终扩展长度约 2.09 µm（论文约 1.97 µm）。
+
+## 说明与假设
+
+1. Table 4 按原表列顺序使用。由此得到的 TC 内温降很小（界面约 1320 K），与论文正文所述的 1270 K 界面温度不同。
+2. 热循环采用 heat transfer input。燃气温度的指数变化形状是根据 Fig. 3 红线拟合的。
+3. 烧结参数 $F, N, t_c, \varepsilon_s$ 论文未给出，本文按 Case A 的裂纹历程（0.58 / 1.48 / 1.97 µm）标定。如果不考虑烧结，第 1 圈扩展 0.615 µm，但第 2 圈只到约 0.83 µm，第 3 圈不再扩展。
+4. 相场驱动力只使用面内主应力；"damaged σ₁" 输出为 $g(d)\sigma_1$，XDMF 中另存了 $\tilde\sigma_1 d$（`sigma1_x_d`）。
+5. 裂纹扩展长度定义为初始裂尖中心到 $d\ge0.9$ 区域最远点的距离（不含初始 0.5 µm 裂纹）。

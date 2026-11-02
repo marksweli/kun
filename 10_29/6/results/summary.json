@@ -3,17 +3,25 @@
   "h_in": 16452.77779375866,
   "Re": 18377677.96983676,
   "Pr": 0.7300726224320415,
-  "T_surface_steady": 1314.2808842352806,
-  "T_interface_steady": 1274.8988361076908,
-  "busso_h_30h_unaccelerated_um": 1.3966561731258056,
-  "TGO_acceleration_factor": 4.295974997605615,
+  "T_surface_steady": 1319.964298711554,
+  "T_interface_steady": 1319.811786078719,
+  "busso_h_30h_1343K_unaccelerated_um": 2.085079415049811,
+  "TGO_acceleration_factor": 2.8775882379792543,
+  "h_tgo_30cycles_expected_um": 5.317861878822307,
+  "F_MAX": 1.5,
+  "N_AV": 4.0,
+  "EPS_S_MAX": 0.001,
+  "T_C_SINT_h": 1.0,
   "n_cells": 30449,
-  "n_dofs_u": 32416,
+  "n_qp": 91347,
+  "n_dofs_u_P2": 125730,
+  "n_dofs_d": 16208,
   "crack_tip": [
    2.5,
    5134.330127018922
   ],
   "x_offpeak": 2.0,
+  "D_EXCL": 0.15,
   "sample_cells": {
    "peak": 25240,
    "off_peak": 5741,
@@ -25,183 +33,183 @@
  "crack_length_per_cycle": [
   {
    "cycle": 1,
-   "h_tgo_um": 1.939,
-   "crack_length_um": 2.353,
-   "angle_deg": 27.7
+   "h_tgo_um": 1.715,
+   "crack_extension_um": 0.645,
+   "angle_deg": 10.6
   },
   {
    "cycle": 2,
-   "h_tgo_um": 2.441,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 2.158,
+   "crack_extension_um": 1.47,
+   "angle_deg": 9.5
   },
   {
    "cycle": 3,
-   "h_tgo_um": 2.793,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 2.469,
+   "crack_extension_um": 2.056,
+   "angle_deg": 9.1
   },
   {
    "cycle": 4,
-   "h_tgo_um": 3.073,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 2.717,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 5,
-   "h_tgo_um": 3.309,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 2.926,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 6,
-   "h_tgo_um": 3.515,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 3.108,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 7,
-   "h_tgo_um": 3.7,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 3.271,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 8,
-   "h_tgo_um": 3.868,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 3.42,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 9,
-   "h_tgo_um": 4.022,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 3.556,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 10,
-   "h_tgo_um": 4.165,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 3.682,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 11,
-   "h_tgo_um": 4.299,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 3.801,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 12,
-   "h_tgo_um": 4.425,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 3.912,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 13,
-   "h_tgo_um": 4.544,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 4.018,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 14,
-   "h_tgo_um": 4.657,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 4.118,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 15,
-   "h_tgo_um": 4.765,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 4.213,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 16,
-   "h_tgo_um": 4.869,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 4.304,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 17,
-   "h_tgo_um": 4.968,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 4.392,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 18,
-   "h_tgo_um": 5.063,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 4.476,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 19,
-   "h_tgo_um": 5.154,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 4.557,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 20,
-   "h_tgo_um": 5.243,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 4.635,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 21,
-   "h_tgo_um": 5.329,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 4.711,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 22,
-   "h_tgo_um": 5.411,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 4.784,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 23,
-   "h_tgo_um": 5.492,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 4.856,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 24,
-   "h_tgo_um": 5.57,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 4.925,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 25,
-   "h_tgo_um": 5.646,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 4.992,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 26,
-   "h_tgo_um": 5.72,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 5.057,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 27,
-   "h_tgo_um": 5.792,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 5.121,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 28,
-   "h_tgo_um": 5.863,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 5.183,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 29,
-   "h_tgo_um": 5.931,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 5.244,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   },
   {
    "cycle": 30,
-   "h_tgo_um": 5.998,
-   "crack_length_um": 2.655,
-   "angle_deg": 26.6
+   "h_tgo_um": 5.303,
+   "crack_extension_um": 2.086,
+   "angle_deg": 9.1
   }
  ]
 }

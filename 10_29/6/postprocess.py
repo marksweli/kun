@@ -15,7 +15,7 @@ import matplotlib.tri as mtri
 import mesh_tbc as MT
 
 HERE = os.path.dirname(os.path.abspath(__file__))
-RES = os.path.join(HERE, "results")
+RES = os.environ.get("TBC_OUT", os.path.join(HERE, "results"))
 FIG = os.path.join(RES, "figures")
 os.makedirs(FIG, exist_ok=True)
 plt.rcParams.update({"font.size": 9, "font.sans-serif": ["DejaVu Sans"]})
@@ -63,17 +63,30 @@ for a in axs:
     a.grid(alpha=0.3)
 fig.tight_layout(); fig.savefig(os.path.join(FIG, "fig_temperature_gradient.png"), dpi=200); plt.close(fig)
 
-# ---------------- 3. 历程 ----------------
+# ---------------- 2b. 热循环波形 (Fig. 3, heat transfer input) ----------------
 import csv
 rows = list(csv.DictReader(open(os.path.join(RES, "history_caseA.csv"))))
 H = {k: np.array([float(r[k]) if k != "phase" else 0 for r in rows]) for k in rows[0] if k != "phase"}
+c1 = H["cycle"] == 1
+tt = np.concatenate([[0, 100], H["t"][c1]])
+fig, ax = plt.subplots(figsize=(7, 3.6))
+ax.plot(tt, np.concatenate([[293.15, 293.15], H["T_gas"][c1]]), "C1--", lw=1, label="hot-gas temperature (input)")
+ax.plot(tt, np.concatenate([[293.15, 293.15], H["T_offpeak_int"][c1]]), "r-", lw=1.4,
+        label="TC/TGO interface (heat transfer input)")
+ax.set_xlabel("time [s]"); ax.set_ylabel("T [K]"); ax.grid(alpha=0.3); ax.legend()
+ax.set_title("Thermal cycle 1 (cycle n ends at 3600 n + 100 s)")
+fig.tight_layout(); fig.savefig(os.path.join(FIG, "fig_thermal_cycle.png"), dpi=200); plt.close(fig)
+
+# ---------------- 3. 历程 ----------------
 th = H["t"] / 3600.0
 fig, axs = plt.subplots(3, 1, figsize=(10, 9), sharex=True)
 axs[0].plot(th, H["T_offpeak_int"], lw=0.8); axs[0].set_ylabel("T at off-peak interface [K]")
 ax2 = axs[0].twinx(); ax2.plot(th, H["h_tgo_um"], "r", lw=1.2); ax2.set_ylabel("TGO thickness [µm]", color="r")
-axs[1].plot(th, H["crack_len_d09_um"], lw=1.2, label="crack length (d ≥ 0.9)")
-axs[1].plot(th, MT.CRACK_L + H["crack_ext_d05_um"], lw=1.0, ls="--", label="crack length (d ≥ 0.5)")
-axs[1].set_ylabel("crack length [µm]"); axs[1].legend()
+PAPER = np.array([[1, 0.58], [2, 1.48], [3, 1.97], [7, 1.97], [30, 1.97]])
+axs[1].plot(th, H["crack_ext_d09_um"], lw=1.2, label="crack extension (d ≥ 0.9)")
+axs[1].plot(th, H["crack_ext_d05_um"], lw=1.0, ls="--", label="crack extension (d ≥ 0.5)")
+axs[1].plot(PAPER[:, 0] + 100 / 3600, PAPER[:, 1], "ks", ms=4, label="paper (COMSOL)")
+axs[1].set_ylabel("crack extension [µm]"); axs[1].legend()
 axs[2].plot(th, H["E_TC_int_GPa"], lw=0.8); axs[2].set_ylabel("E of TC near off-peak [GPa]\n(T- and sintering-dependent)")
 axs[2].set_xlabel("time [h] (= cycles)")
 for a in axs:
@@ -94,13 +107,15 @@ fig.tight_layout(); fig.savefig(os.path.join(FIG, "fig_stress_history_sampling_p
 cyc_end = []
 for c in range(1, int(H["cycle"].max()) + 1):
     i = np.where(H["cycle"] == c)[0][-1]
-    cyc_end.append((c, H["t"][i], H["h_tgo_um"][i], H["crack_len_d09_um"][i], H["crack_angle_deg"][i],
-                    H["sig1_max_TC"][i]))
+    cyc_end.append((c, H["t"][i], H["h_tgo_um"][i], H["crack_ext_d09_um"][i], H["crack_angle_deg"][i],
+                    H["sig1_max_TC"][i], H["branch_d_left"][i]))
 np.savetxt(os.path.join(RES, "crack_length_per_cycle.csv"), np.array(cyc_end), delimiter=",",
-           header="cycle,t_s,h_tgo_um,crack_length_d09_um,crack_angle_deg,sig1_max_TC_MPa", comments="", fmt="%.5g")
+           header="cycle,t_s,h_tgo_um,crack_extension_d09_um,crack_angle_deg,sig1_max_TC_MPa,branch_d_left", comments="", fmt="%.5g")
 fig, ax = plt.subplots(figsize=(6, 4))
 ce = np.array(cyc_end)
-ax.plot(ce[:, 0], ce[:, 3], "o-"); ax.set_xlabel("cycle"); ax.set_ylabel("crack length at end of cycle [µm]")
+ax.plot(ce[:, 0], ce[:, 3], "o-", label="FEniCSx (P2)")
+ax.plot(PAPER[:, 0], PAPER[:, 1], "ks--", ms=5, label="paper: 0.58 / 1.48 / 1.97 µm, arrest at cycle 7")
+ax.legend(fontsize=7); ax.set_xlabel("cycle"); ax.set_ylabel("crack extension at end of cycle [µm]")
 ax2 = ax.twinx(); ax2.plot(ce[:, 0], ce[:, 2], "s--r", ms=3); ax2.set_ylabel("TGO thickness [µm]", color="r")
 ax.grid(alpha=0.3); fig.tight_layout(); fig.savefig(os.path.join(FIG, "fig_crack_length_per_cycle.png"), dpi=200)
 plt.close(fig)
@@ -119,7 +134,7 @@ def pick(names):
 
 
 ncyc = int(H["cycle"].max())
-wanted = ["c01_end_heating", "c01_cooled", "c01_end", "c02_end", "c03_end", "c05_end", "c07_end",
+wanted = ["c01_end_heating", "c01_end", "c02_end", "c03_end", "c04_end", "c05_end", "c07_end",
           "c10_end", "c15_end", "c20_end", "c25_end", "c30_end"]
 sel_snaps = pick([w for w in wanted if int(w[1:3]) <= ncyc])
 
@@ -167,7 +182,7 @@ panel_plot("T", "fig_temperature_snapshots.png", "inferno", 290, 1330, (0, 12, Y
 
 info = json.load(open(os.path.join(RES, "run_info.json")))
 summary = dict(run_info=info, crack_length_per_cycle=[dict(cycle=int(c[0]), h_tgo_um=round(c[2], 3),
-                                                          crack_length_um=round(c[3], 3),
+                                                          crack_extension_um=round(c[3], 3),
                                                           angle_deg=None if np.isnan(c[4]) else round(c[4], 1))
                                                      for c in cyc_end])
 json.dump(summary, open(os.path.join(RES, "summary.json"), "w"), indent=1)
