@@ -1,0 +1,31 @@
+{
+ "h_in": 16452.77779375866,
+ "Re": 18377677.96983676,
+ "Pr": 0.7300726224320415,
+ "T_surface_steady": 1319.964298711554,
+ "T_interface_steady": 1319.811786078719,
+ "busso_h_30h_1343K_unaccelerated_um": 2.085079415049811,
+ "TGO_acceleration_factor": 2.8775882379792543,
+ "h_tgo_30cycles_expected_um": 5.317861878822307,
+ "F_MAX": 1.5,
+ "N_AV": 4.0,
+ "EPS_S_MAX": 0.001,
+ "T_C_SINT_h": 1.0,
+ "n_cells": 30449,
+ "n_qp": 91347,
+ "n_dofs_u_P2": 125730,
+ "n_dofs_d": 16208,
+ "crack_tip": [
+  2.5,
+  5134.330127018922
+ ],
+ "x_offpeak": 2.0,
+ "D_EXCL": 0.15,
+ "sample_cells": {
+  "peak": 25240,
+  "off_peak": 5741,
+  "mid": 26475,
+  "off_valley": 23019,
+  "valley": 22701
+ }
+}
