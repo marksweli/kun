@@ -1,0 +1,24 @@
+{
+  "case": "trap",
+  "ncycles": 10,
+  "hold": 2400.0,
+  "h_tgo_final": 1.6163684337863267,
+  "ncell": 30320,
+  "wall_time_s": 2538.238510608673,
+  "monitor_x": {
+    "peak": 10.715,
+    "off-peak": 8.036249999999999,
+    "mid-flank": 5.3575,
+    "off-valley": 2.67875,
+    "valley": 0.0
+  },
+  "L": 21.43,
+  "A": 6.88,
+  "h0": 0.7,
+  "t_coh": 0.2,
+  "growth": true,
+  "damage": true,
+  "growth_law": "eq2",
+  "kp_um3_per_h": 0.582,
+  "growth_dir": "y"
+}

@@ -1,0 +1,82 @@
+{
+  "tri": {
+    "cycle": 10,
+    "h_tgo_um": 0.7,
+    "s22_max_TC_near_interface_MPa": 181.03544993989925,
+    "s22_max_point_xy_um": [
+      8.61150990180114,
+      6.912306009232363
+    ],
+    "s22_max_x_over_L_folded": 0.42970669321500954,
+    "s22_max_location": "off-peak",
+    "s22_profile_max_x_over_L": 0.425,
+    "s22_profile_max_location": "off-peak",
+    "s22_profile_max_MPa": 140.43150105255586,
+    "crack_initiation_xy_um": [
+      8.465427250390182,
+      6.7751140377381205
+    ],
+    "crack_initiation_x_over_L_folded": 0.3950269365557714,
+    "crack_initiation_location": "off-peak",
+    "crack_path_length_um": 2.0000000000000027,
+    "crack_path_mean_angle_to_x_deg": 10.20859839115308,
+    "interface_D_eq4_max": 1.0,
+    "interface_cracked_fraction_r_eq_1": 0.0,
+    "interface_initiated_fraction_D_eq_1": 0.8926589842082799
+  },
+  "trap": {
+    "cycle": 10,
+    "h_tgo_um": 1.6163684337863267,
+    "s22_max_TC_near_interface_MPa": 758.2759793590404,
+    "s22_max_point_xy_um": [
+      21.330065672477765,
+      -5.9507382145293235
+    ],
+    "s22_max_x_over_L_folded": 0.010158367040784615,
+    "s22_max_location": "valley",
+    "s22_profile_max_x_over_L": 0.0033333333333333335,
+    "s22_profile_max_location": "valley",
+    "s22_profile_max_MPa": 713.5982484765345,
+    "crack_initiation_xy_um": [
+      21.330065672477765,
+      -5.9507382145293235
+    ],
+    "crack_initiation_x_over_L_folded": 0.0046632910649666084,
+    "crack_initiation_location": "valley",
+    "crack_path_length_um": 0.1500000000000005,
+    "crack_path_mean_angle_to_x_deg": 1.0766304287245327,
+    "interface_D_eq4_max": 1.0,
+    "interface_cracked_fraction_r_eq_1": 0.4780196329492104,
+    "interface_initiated_fraction_D_eq_1": 0.998719590268886
+  },
+  "variants": {
+    "trap": {
+      "cycle": 10,
+      "h_tgo_um": 1.6163684337863267,
+      "s22_profile_max_x_over_L": 0.0033333333333333335,
+      "s22_profile_max_location": "valley",
+      "s22_profile_max_MPa": 713.5982484765345
+    },
+    "trap_normalgrowth": {
+      "cycle": 10,
+      "h_tgo_um": 1.6163684337863267,
+      "s22_profile_max_x_over_L": 0.49833333333333335,
+      "s22_profile_max_location": "peak",
+      "s22_profile_max_MPa": 82.17977578761737
+    },
+    "trap_sec32growth": {
+      "cycle": 10,
+      "h_tgo_um": 1.026074225764135,
+      "s22_profile_max_x_over_L": 0.49500000000000005,
+      "s22_profile_max_location": "peak",
+      "s22_profile_max_MPa": 79.26670282449439
+    },
+    "tri": {
+      "cycle": 10,
+      "h_tgo_um": 0.7,
+      "s22_profile_max_x_over_L": 0.425,
+      "s22_profile_max_location": "off-peak",
+      "s22_profile_max_MPa": 140.43150105255586
+    }
+  }
+}

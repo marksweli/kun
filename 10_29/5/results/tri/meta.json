@@ -1,0 +1,21 @@
+{
+  "case": "tri",
+  "ncycles": 10,
+  "hold": 1.0,
+  "h_tgo_final": 0.7,
+  "ncell": 30320,
+  "wall_time_s": 583.4145865440369,
+  "monitor_x": {
+    "peak": 10.715,
+    "off-peak": 8.036249999999999,
+    "mid-flank": 5.3575,
+    "off-valley": 2.67875,
+    "valley": 0.0
+  },
+  "L": 21.43,
+  "A": 6.88,
+  "h0": 0.7,
+  "t_coh": 0.2,
+  "growth": false,
+  "damage": false
+}
