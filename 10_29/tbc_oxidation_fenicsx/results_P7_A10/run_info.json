@@ -1,0 +1,19 @@
+{
+  "porosity": 0.07,
+  "amp": 10.0,
+  "hours": 2000.0,
+  "gamma": 0.0143,
+  "omega_rt": 5e-23,
+  "alpha": 1.0,
+  "hmin": 0.5,
+  "dt_max": 5.0,
+  "dphi_max": 0.05,
+  "snap_every": 50.0,
+  "split": "spectral",
+  "outdir": "results_P7_A10",
+  "D_TC": 8.347500000000001e-07,
+  "kappa": 58111.02393095332,
+  "ncells": 30144,
+  "steps": 446,
+  "wall_s": 2449.452889919281
+}

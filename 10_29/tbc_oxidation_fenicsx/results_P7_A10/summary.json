@@ -1,0 +1,28 @@
+{
+  "t_phi_max_0.4_h": 515.0,
+  "t_phi_max_0.95_h(initiation)": 534.38232421875,
+  "t_phi_valley_0.4_h": 530.0,
+  "t_crack_15um_h": 534.38232421875,
+  "t_crack_40um_h": 1175.0,
+  "TGO_at_200h_um(peak/valley/mean)": [
+    5.19,
+    4.21,
+    4.69
+  ],
+  "TGO_at_1000h_um(peak/valley/mean)": [
+    12.06,
+    8.44,
+    9.45
+  ],
+  "TGO_at_2000h_um(peak/valley/mean)": [
+    17.73,
+    11.49,
+    12.86
+  ],
+  "TGO_valley_at_phi0.4_um": 6.32,
+  "phi_max_location_at_0.4(x_um, y_above_if_um)": [
+    34.1,
+    -0.0
+  ],
+  "final_crack_len_um": 40.0
+}
