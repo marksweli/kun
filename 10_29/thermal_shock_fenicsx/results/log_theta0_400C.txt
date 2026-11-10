@@ -1,0 +1,29 @@
+theta0=400.0 C, mesh 400x80 quads (32000 cells), h=0.0625 mm, ell=0.125 mm, sigma_c(AT1)=217.1 MPa, thermal stress E*alpha*dT/(1-nu)=1582 MPa, steps=540
+step 20/540 t=0.400 ms it=2 err=3.5e-04 maxd=0.878 Eel=1.004e-01 Ef=8.015e-01 wall=14s
+step 40/540 t=0.800 ms it=26 err=9.9e-04 maxd=1.000 Eel=1.112e-01 Ef=9.010e-01 wall=67s
+step 60/540 t=1.200 ms it=6 err=9.7e-04 maxd=1.000 Eel=1.087e-01 Ef=9.921e-01 wall=224s
+step 80/540 t=1.600 ms it=6 err=8.8e-04 maxd=1.000 Eel=1.135e-01 Ef=1.059e+00 wall=257s
+step 100/540 t=2.000 ms it=4 err=9.8e-04 maxd=1.000 Eel=1.169e-01 Ef=1.117e+00 wall=286s
+step 120/540 t=4.000 ms it=12 err=9.3e-04 maxd=1.000 Eel=1.308e-01 Ef=1.332e+00 wall=351s
+step 140/540 t=6.000 ms it=13 err=9.4e-04 maxd=1.000 Eel=1.409e-01 Ef=1.485e+00 wall=422s
+step 160/540 t=8.000 ms it=11 err=9.3e-04 maxd=1.000 Eel=1.479e-01 Ef=1.607e+00 wall=492s
+step 180/540 t=10.000 ms it=10 err=8.7e-04 maxd=1.000 Eel=1.530e-01 Ef=1.706e+00 wall=551s
+step 200/540 t=12.000 ms it=10 err=9.4e-04 maxd=1.000 Eel=1.568e-01 Ef=1.789e+00 wall=604s
+step 220/540 t=14.000 ms it=8 err=9.3e-04 maxd=1.000 Eel=1.604e-01 Ef=1.861e+00 wall=656s
+step 240/540 t=16.000 ms it=9 err=9.4e-04 maxd=1.000 Eel=1.635e-01 Ef=1.923e+00 wall=710s
+step 260/540 t=18.000 ms it=9 err=9.9e-04 maxd=1.000 Eel=1.663e-01 Ef=1.980e+00 wall=764s
+step 280/540 t=20.000 ms it=9 err=9.5e-04 maxd=1.000 Eel=1.685e-01 Ef=2.032e+00 wall=817s
+step 300/540 t=30.000 ms it=50 err=2.5e-03 maxd=1.000 Eel=1.747e-01 Ef=2.238e+00 wall=939s
+step 320/540 t=40.000 ms it=14 err=8.9e-04 maxd=1.000 Eel=1.795e-01 Ef=2.388e+00 wall=1066s
+step 340/540 t=50.000 ms it=13 err=9.3e-04 maxd=1.000 Eel=1.846e-01 Ef=2.503e+00 wall=1155s
+step 360/540 t=60.000 ms it=25 err=9.8e-04 maxd=1.000 Eel=1.884e-01 Ef=2.600e+00 wall=1270s
+step 380/540 t=70.000 ms it=18 err=9.6e-04 maxd=1.000 Eel=1.911e-01 Ef=2.683e+00 wall=1396s
+step 400/540 t=80.000 ms it=19 err=9.6e-04 maxd=1.000 Eel=1.925e-01 Ef=2.755e+00 wall=1510s
+step 420/540 t=90.000 ms it=15 err=9.2e-04 maxd=1.000 Eel=1.945e-01 Ef=2.816e+00 wall=1602s
+step 440/540 t=100.000 ms it=14 err=9.5e-04 maxd=1.000 Eel=1.962e-01 Ef=2.870e+00 wall=1680s
+step 460/540 t=140.000 ms it=23 err=9.3e-04 maxd=1.000 Eel=1.968e-01 Ef=3.037e+00 wall=1835s
+step 480/540 t=180.000 ms it=17 err=9.9e-04 maxd=1.000 Eel=1.946e-01 Ef=3.150e+00 wall=1959s
+step 500/540 t=220.000 ms it=13 err=9.4e-04 maxd=1.000 Eel=1.907e-01 Ef=3.227e+00 wall=2074s
+step 520/540 t=260.000 ms it=25 err=9.9e-04 maxd=1.000 Eel=1.869e-01 Ef=3.278e+00 wall=2167s
+step 540/540 t=300.000 ms it=10 err=9.5e-04 maxd=1.000 Eel=1.837e-01 Ef=3.308e+00 wall=2252s
+done in 2252 s

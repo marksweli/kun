@@ -1,0 +1,68 @@
+{
+  "sigma2MPa": {
+    "initiation_us": 8.1,
+    "branching_us": 20.6,
+    "branching_x_mm": 66.5,
+    "mean_speed_before_branching_m_s": 1366.0,
+    "mean_speed_after_branching_m_s": 2152.4,
+    "max_speed_2us_window_m_s": 2797.3,
+    "wallclock_s": 826
+  },
+  "sigma4MPa": {
+    "initiation_us": 4.9,
+    "branching_us": 10.5,
+    "branching_x_mm": 62.0,
+    "mean_speed_before_branching_m_s": 2411.8,
+    "mean_speed_after_branching_m_s": 2375.7,
+    "max_speed_2us_window_m_s": 3451.8,
+    "wallclock_s": 940
+  },
+  "sigma6MPa": {
+    "initiation_us": 4.2,
+    "branching_us": 11.1,
+    "branching_x_mm": 68.75,
+    "mean_speed_before_branching_m_s": 4141.2,
+    "mean_speed_after_branching_m_s": 2856.5,
+    "max_speed_2us_window_m_s": 12125.8,
+    "wallclock_s": 942
+  },
+  "mesh_h0.5": {
+    "initiation_us": 8.2,
+    "branching_us": 21.6,
+    "branching_x_mm": 68.5,
+    "mean_speed_before_branching_m_s": 1459.9,
+    "mean_speed_after_branching_m_s": 2296.2,
+    "max_speed_2us_window_m_s": 3532.2,
+    "n_cells": 16000,
+    "dt_ns": 10.0,
+    "steps": 5000,
+    "wallclock_s": 511,
+    "wallclock_per_step_s": 0.1021
+  },
+  "mesh_h0.25": {
+    "initiation_us": 8.1,
+    "branching_us": 20.4,
+    "branching_x_mm": 66.25,
+    "mean_speed_before_branching_m_s": 1337.6,
+    "mean_speed_after_branching_m_s": 2212.7,
+    "max_speed_2us_window_m_s": 2892.8,
+    "n_cells": 64000,
+    "dt_ns": 10.0,
+    "steps": 5000,
+    "wallclock_s": 1827,
+    "wallclock_per_step_s": 0.3654
+  },
+  "mesh_h0.125": {
+    "initiation_us": 8.0,
+    "branching_us": 20.7,
+    "branching_x_mm": 66.62,
+    "mean_speed_before_branching_m_s": 1291.8,
+    "mean_speed_after_branching_m_s": 1599.9,
+    "max_speed_2us_window_m_s": 1939.7,
+    "n_cells": 256000,
+    "dt_ns": 10.0,
+    "steps": 5000,
+    "wallclock_s": 6423,
+    "wallclock_per_step_s": 1.2845
+  }
+}

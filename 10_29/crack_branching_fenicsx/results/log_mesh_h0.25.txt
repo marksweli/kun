@@ -1,0 +1,12 @@
+mesh 400x160 quads, h=0.25 mm, ell=0.5 mm, dt=10 ns (CFL 41.5 ns), steps=5000, sigma_c(AT1)=14.3 MPa
+step 500/5000  t=5.00 us  max d=1.000  tip=(50.00,20.00) mm  wall=171s
+step 1000/5000  t=10.00 us  max d=1.000  tip=(53.00,20.00) mm  wall=337s
+step 1500/5000  t=15.00 us  max d=1.000  tip=(58.00,20.00) mm  wall=510s
+step 2000/5000  t=20.00 us  max d=1.000  tip=(65.50,20.50) mm  wall=687s
+step 2500/5000  t=25.00 us  max d=1.000  tip=(72.75,24.75) mm  wall=874s
+step 3000/5000  t=30.00 us  max d=1.000  tip=(79.00,27.75) mm  wall=1057s
+step 3500/5000  t=35.00 us  max d=1.000  tip=(86.00,29.25) mm  wall=1249s
+step 4000/5000  t=40.00 us  max d=1.000  tip=(93.50,31.75) mm  wall=1439s
+step 4500/5000  t=45.00 us  max d=1.000  tip=(99.00,35.00) mm  wall=1631s
+step 5000/5000  t=50.00 us  max d=1.000  tip=(100.00,34.75) mm  wall=1827s
+done in 1827 s
