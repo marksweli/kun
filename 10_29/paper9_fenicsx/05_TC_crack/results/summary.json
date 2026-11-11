@@ -1,0 +1,12 @@
+{
+  "case": "5.4 TC crack",
+  "damage": true,
+  "h": 0.0002,
+  "cells": 58028,
+  "dT": 10.0,
+  "final_dmax": 0.2821735730842057,
+  "final_Efrac": 3.750668089036349e-05,
+  "n_max": 0.07136029256881682,
+  "tgo_thickness_valley_mm": 0.0,
+  "wall_s": 739.5464627742767
+}

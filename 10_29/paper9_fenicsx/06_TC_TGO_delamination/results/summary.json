@@ -1,0 +1,13 @@
+{
+  "case": "5.5 TC/TGO delamination",
+  "damage": true,
+  "h": 0.0002,
+  "cells": 54478,
+  "n_ox": 400,
+  "n_mech": 40,
+  "dT": 10.0,
+  "tgo_thickness_800h_um": 3.3700831500000006,
+  "final_dmax": 0.07718828502360404,
+  "final_Efrac": 0.00013617850764407937,
+  "wall_s": 1286.8706369400024
+}

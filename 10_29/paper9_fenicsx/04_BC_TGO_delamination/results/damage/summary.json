@@ -1,0 +1,10 @@
+{
+  "case": "5.3 BC/TGO delamination",
+  "damage": true,
+  "h": 0.0002,
+  "cells": 108588,
+  "dT": 10.0,
+  "final_dmax": 0.6914603191884269,
+  "final_Efrac": 0.0001583526949548392,
+  "wall_s": 5512.235305786133
+}
