@@ -1,0 +1,23 @@
+{
+  "bottom": "clamped",
+  "mode": "quench",
+  "theta0_C": 1000.0,
+  "theta_shock_C": 10.0,
+  "Gi_N_per_mm": 0.004,
+  "hTC_um": 100.0,
+  "hBC_um": 100,
+  "L_um": 2500,
+  "h_um": 5.0,
+  "ell_um": 10.0,
+  "band_um": 10.0,
+  "nu": 0.3333333333333333,
+  "nx": 500,
+  "ny": 40,
+  "n_cells": 20000,
+  "steps": 620,
+  "T_s": 0.3,
+  "Gc_noise": 0.02,
+  "seed": 1,
+  "wallclock_s": 1248.1379435062408,
+  "wallclock_per_step_s": 2.0131257153326465
+}

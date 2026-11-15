@@ -1,0 +1,33 @@
+heat: theta0=10.0 -> 1000.0 C, Gi=1.0 N/m, hTC=100.0 um, mesh 500x40 (20000 cells), h=5 um, ell=10 um, band=10 um, steps=620
+step 20/620 t=0.200 ms it=2 err=2.7e-04 iface=0.00 ntrans=0 maxdBC=0.00 Eel=6.036e-03 wall=8s
+step 40/620 t=0.400 ms it=5 err=9.4e-04 iface=0.00 ntrans=0 maxdBC=0.00 Eel=7.731e-03 wall=19s
+step 60/620 t=0.600 ms it=44 err=8.3e-04 iface=0.00 ntrans=0 maxdBC=0.00 Eel=7.470e-03 wall=94s
+step 80/620 t=0.800 ms it=8 err=9.1e-04 iface=0.00 ntrans=0 maxdBC=0.00 Eel=7.596e-03 wall=144s
+step 100/620 t=1.000 ms it=7 err=9.6e-04 iface=0.00 ntrans=0 maxdBC=0.00 Eel=7.714e-03 wall=191s
+step 120/620 t=1.200 ms it=6 err=9.4e-04 iface=0.00 ntrans=0 maxdBC=0.00 Eel=7.971e-03 wall=221s
+step 140/620 t=1.400 ms it=5 err=9.4e-04 iface=0.00 ntrans=0 maxdBC=0.00 Eel=8.205e-03 wall=249s
+step 160/620 t=1.600 ms it=6 err=9.1e-04 iface=0.00 ntrans=0 maxdBC=0.00 Eel=8.383e-03 wall=275s
+step 180/620 t=1.800 ms it=4 err=9.9e-04 iface=0.00 ntrans=0 maxdBC=0.00 Eel=8.566e-03 wall=301s
+step 200/620 t=2.000 ms it=5 err=9.5e-04 iface=0.00 ntrans=0 maxdBC=0.00 Eel=8.696e-03 wall=325s
+step 220/620 t=3.000 ms it=12 err=9.3e-04 iface=0.00 ntrans=2 maxdBC=0.00 Eel=9.255e-03 wall=379s
+step 240/620 t=4.000 ms it=7 err=9.8e-04 iface=0.00 ntrans=6 maxdBC=0.00 Eel=9.631e-03 wall=427s
+step 260/620 t=5.000 ms it=6 err=9.9e-04 iface=0.00 ntrans=8 maxdBC=0.00 Eel=9.947e-03 wall=457s
+step 280/620 t=6.000 ms it=2 err=9.9e-04 iface=0.00 ntrans=9 maxdBC=0.00 Eel=1.018e-02 wall=479s
+step 300/620 t=7.000 ms it=1 err=3.1e-04 iface=0.00 ntrans=9 maxdBC=0.00 Eel=1.033e-02 wall=486s
+step 320/620 t=8.000 ms it=1 err=3.4e-08 iface=0.00 ntrans=9 maxdBC=0.00 Eel=1.030e-02 wall=491s
+step 340/620 t=9.000 ms it=1 err=0.0e+00 iface=0.00 ntrans=9 maxdBC=0.00 Eel=1.009e-02 wall=497s
+step 360/620 t=10.000 ms it=1 err=0.0e+00 iface=0.00 ntrans=9 maxdBC=0.00 Eel=9.742e-03 wall=502s
+step 380/620 t=15.000 ms it=1 err=0.0e+00 iface=0.00 ntrans=9 maxdBC=0.00 Eel=7.346e-03 wall=507s
+step 400/620 t=20.000 ms it=1 err=1.6e-06 iface=0.00 ntrans=9 maxdBC=0.00 Eel=5.245e-03 wall=513s
+step 420/620 t=25.000 ms it=1 err=3.3e-04 iface=0.00 ntrans=9 maxdBC=0.00 Eel=3.845e-03 wall=518s
+step 440/620 t=30.000 ms it=2 err=6.3e-05 iface=0.00 ntrans=9 maxdBC=0.00 Eel=3.087e-03 wall=525s
+step 460/620 t=35.000 ms it=2 err=5.1e-05 iface=0.00 ntrans=9 maxdBC=0.00 Eel=2.842e-03 wall=536s
+step 480/620 t=40.000 ms it=2 err=9.4e-05 iface=0.00 ntrans=9 maxdBC=0.00 Eel=2.993e-03 wall=545s
+step 500/620 t=45.000 ms it=2 err=2.2e-04 iface=0.00 ntrans=9 maxdBC=0.00 Eel=3.450e-03 wall=554s
+step 520/620 t=50.000 ms it=2 err=3.7e-04 iface=0.00 ntrans=9 maxdBC=0.00 Eel=4.135e-03 wall=566s
+step 540/620 t=100.000 ms it=28 err=1.0e-03 iface=0.73 ntrans=9 maxdBC=0.01 Eel=2.017e-03 wall=719s
+step 560/620 t=150.000 ms it=10 err=9.9e-04 iface=0.83 ntrans=9 maxdBC=0.01 Eel=1.772e-03 wall=797s
+step 580/620 t=200.000 ms it=6 err=8.9e-04 iface=0.85 ntrans=9 maxdBC=0.01 Eel=1.801e-03 wall=825s
+step 600/620 t=250.000 ms it=3 err=9.0e-04 iface=0.86 ntrans=9 maxdBC=0.01 Eel=1.836e-03 wall=842s
+step 620/620 t=300.000 ms it=2 err=8.2e-04 iface=0.86 ntrans=9 maxdBC=0.01 Eel=1.856e-03 wall=857s
+done in 857 s
