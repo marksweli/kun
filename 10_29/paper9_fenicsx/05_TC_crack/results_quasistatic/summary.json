@@ -1,0 +1,23 @@
+{
+  "case": "5.4 TC crack",
+  "scheme": "explicit (paper Sec. 3.1.2)",
+  "damage": true,
+  "h": 0.0002,
+  "nodes": 17139,
+  "cells": 33688,
+  "dt": 6.03400668313742e-12,
+  "dt_u": 1.206801336627484e-11,
+  "dt_d": 5.622720739227174e-10,
+  "beta": 0.5,
+  "eta": 1e-05,
+  "t_sim": 2.4e-05,
+  "steps": 3977457,
+  "time_scale": 75000000.0,
+  "final_dmax": 0.2624493221422995,
+  "final_crack_extent": 0.0,
+  "final_Efrac": 0.009344511325690289,
+  "n_max": 0.05656176502231276,
+  "T_initiation_C": 133.00008523033682,
+  "T_coalescence_C": null,
+  "wall_s": 4978.036895990372
+}

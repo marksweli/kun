@@ -3,102 +3,160 @@
 <Xdmf Version="3.0" xmlns:xi="https://www.w3.org/2001/XInclude">
   <Domain>
     <Grid Name="mesh" GridType="Uniform">
-      <Topology TopologyType="Triangle" NumberOfElements="58028" NodesPerElement="3">
-        <DataItem Dimensions="58028 3" NumberType="Int" Format="HDF">tc_crack.h5:/Mesh/mesh/topology</DataItem>
+      <Topology TopologyType="Triangle" NumberOfElements="33688" NodesPerElement="3">
+        <DataItem Dimensions="33688 3" NumberType="Int" Format="HDF">tc_crack.h5:/Mesh/mesh/topology</DataItem>
       </Topology>
       <Geometry GeometryType="XY">
-        <DataItem Dimensions="29377 2" Format="HDF">tc_crack.h5:/Mesh/mesh/geometry</DataItem>
+        <DataItem Dimensions="17139 2" Format="HDF">tc_crack.h5:/Mesh/mesh/geometry</DataItem>
       </Geometry>
+    </Grid>
+    <Grid Name="u" GridType="Collection" CollectionType="Temporal">
+      <Grid Name="u" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="594.0005910024164" />
+        <Attribute Name="u" AttributeType="Vector" Center="Node">
+          <DataItem Dimensions="17139 3" Format="HDF">tc_crack.h5:/Function/u/594_0005910024164</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="u" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="1080.000004885027" />
+        <Attribute Name="u" AttributeType="Vector" Center="Node">
+          <DataItem Dimensions="17139 3" Format="HDF">tc_crack.h5:/Function/u/1080_000004885027</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="u" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="1134.0001408944286" />
+        <Attribute Name="u" AttributeType="Vector" Center="Node">
+          <DataItem Dimensions="17139 3" Format="HDF">tc_crack.h5:/Function/u/1134_0001408944286</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="u" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="1800.0006115423798" />
+        <Attribute Name="u" AttributeType="Vector" Center="Node">
+          <DataItem Dimensions="17139 3" Format="HDF">tc_crack.h5:/Function/u/1800_0006115423798</DataItem>
+        </Attribute>
+      </Grid>
     </Grid>
     <Grid Name="d" GridType="Collection" CollectionType="Temporal">
       <Grid Name="d" GridType="Uniform">
         <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
-        <Time Value="716.81415929203536" />
+        <Time Value="594.0005910024164" />
         <Attribute Name="d" AttributeType="Scalar" Center="Node">
-          <DataItem Dimensions="29377 1" Format="HDF">tc_crack.h5:/Function/d/716_81415929203536</DataItem>
+          <DataItem Dimensions="17139 1" Format="HDF">tc_crack.h5:/Function/d/594_0005910024164</DataItem>
         </Attribute>
       </Grid>
       <Grid Name="d" GridType="Uniform">
         <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
-        <Time Value="1194.6902654867256" />
+        <Time Value="1080.000004885027" />
         <Attribute Name="d" AttributeType="Scalar" Center="Node">
-          <DataItem Dimensions="29377 1" Format="HDF">tc_crack.h5:/Function/d/1194_6902654867256</DataItem>
+          <DataItem Dimensions="17139 1" Format="HDF">tc_crack.h5:/Function/d/1080_000004885027</DataItem>
         </Attribute>
       </Grid>
       <Grid Name="d" GridType="Uniform">
         <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
-        <Time Value="1800" />
+        <Time Value="1134.0001408944286" />
         <Attribute Name="d" AttributeType="Scalar" Center="Node">
-          <DataItem Dimensions="29377 1" Format="HDF">tc_crack.h5:/Function/d/1800</DataItem>
+          <DataItem Dimensions="17139 1" Format="HDF">tc_crack.h5:/Function/d/1134_0001408944286</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="d" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="1800.0006115423798" />
+        <Attribute Name="d" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="17139 1" Format="HDF">tc_crack.h5:/Function/d/1800_0006115423798</DataItem>
         </Attribute>
       </Grid>
     </Grid>
-    <Grid Name="sigma_max_principal" GridType="Collection" CollectionType="Temporal">
-      <Grid Name="sigma_max_principal" GridType="Uniform">
+    <Grid Name="s1" GridType="Collection" CollectionType="Temporal">
+      <Grid Name="s1" GridType="Uniform">
         <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
-        <Time Value="716.81415929203536" />
-        <Attribute Name="sigma_max_principal" AttributeType="Scalar" Center="Cell">
-          <DataItem Dimensions="58028 1" Format="HDF">tc_crack.h5:/Function/sigma_max_principal/716_81415929203536</DataItem>
+        <Time Value="594.0005910024164" />
+        <Attribute Name="s1" AttributeType="Scalar" Center="Cell">
+          <DataItem Dimensions="33688 1" Format="HDF">tc_crack.h5:/Function/s1/594_0005910024164</DataItem>
         </Attribute>
       </Grid>
-      <Grid Name="sigma_max_principal" GridType="Uniform">
+      <Grid Name="s1" GridType="Uniform">
         <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
-        <Time Value="1194.6902654867256" />
-        <Attribute Name="sigma_max_principal" AttributeType="Scalar" Center="Cell">
-          <DataItem Dimensions="58028 1" Format="HDF">tc_crack.h5:/Function/sigma_max_principal/1194_6902654867256</DataItem>
+        <Time Value="1080.000004885027" />
+        <Attribute Name="s1" AttributeType="Scalar" Center="Cell">
+          <DataItem Dimensions="33688 1" Format="HDF">tc_crack.h5:/Function/s1/1080_000004885027</DataItem>
         </Attribute>
       </Grid>
-      <Grid Name="sigma_max_principal" GridType="Uniform">
+      <Grid Name="s1" GridType="Uniform">
         <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
-        <Time Value="1800" />
-        <Attribute Name="sigma_max_principal" AttributeType="Scalar" Center="Cell">
-          <DataItem Dimensions="58028 1" Format="HDF">tc_crack.h5:/Function/sigma_max_principal/1800</DataItem>
+        <Time Value="1134.0001408944286" />
+        <Attribute Name="s1" AttributeType="Scalar" Center="Cell">
+          <DataItem Dimensions="33688 1" Format="HDF">tc_crack.h5:/Function/s1/1134_0001408944286</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="s1" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="1800.0006115423798" />
+        <Attribute Name="s1" AttributeType="Scalar" Center="Cell">
+          <DataItem Dimensions="33688 1" Format="HDF">tc_crack.h5:/Function/s1/1800_0006115423798</DataItem>
         </Attribute>
       </Grid>
     </Grid>
     <Grid Name="n" GridType="Collection" CollectionType="Temporal">
       <Grid Name="n" GridType="Uniform">
         <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
-        <Time Value="716.81415929203536" />
+        <Time Value="594.0005910024164" />
         <Attribute Name="n" AttributeType="Scalar" Center="Node">
-          <DataItem Dimensions="29377 1" Format="HDF">tc_crack.h5:/Function/n/716_81415929203536</DataItem>
+          <DataItem Dimensions="17139 1" Format="HDF">tc_crack.h5:/Function/n/594_0005910024164</DataItem>
         </Attribute>
       </Grid>
       <Grid Name="n" GridType="Uniform">
         <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
-        <Time Value="1194.6902654867256" />
+        <Time Value="1080.000004885027" />
         <Attribute Name="n" AttributeType="Scalar" Center="Node">
-          <DataItem Dimensions="29377 1" Format="HDF">tc_crack.h5:/Function/n/1194_6902654867256</DataItem>
+          <DataItem Dimensions="17139 1" Format="HDF">tc_crack.h5:/Function/n/1080_000004885027</DataItem>
         </Attribute>
       </Grid>
       <Grid Name="n" GridType="Uniform">
         <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
-        <Time Value="1800" />
+        <Time Value="1134.0001408944286" />
         <Attribute Name="n" AttributeType="Scalar" Center="Node">
-          <DataItem Dimensions="29377 1" Format="HDF">tc_crack.h5:/Function/n/1800</DataItem>
+          <DataItem Dimensions="17139 1" Format="HDF">tc_crack.h5:/Function/n/1134_0001408944286</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="n" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="1800.0006115423798" />
+        <Attribute Name="n" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="17139 1" Format="HDF">tc_crack.h5:/Function/n/1800_0006115423798</DataItem>
         </Attribute>
       </Grid>
     </Grid>
     <Grid Name="c" GridType="Collection" CollectionType="Temporal">
       <Grid Name="c" GridType="Uniform">
         <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
-        <Time Value="716.81415929203536" />
+        <Time Value="594.0005910024164" />
         <Attribute Name="c" AttributeType="Scalar" Center="Node">
-          <DataItem Dimensions="29377 1" Format="HDF">tc_crack.h5:/Function/c/716_81415929203536</DataItem>
+          <DataItem Dimensions="17139 1" Format="HDF">tc_crack.h5:/Function/c/594_0005910024164</DataItem>
         </Attribute>
       </Grid>
       <Grid Name="c" GridType="Uniform">
         <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
-        <Time Value="1194.6902654867256" />
+        <Time Value="1080.000004885027" />
         <Attribute Name="c" AttributeType="Scalar" Center="Node">
-          <DataItem Dimensions="29377 1" Format="HDF">tc_crack.h5:/Function/c/1194_6902654867256</DataItem>
+          <DataItem Dimensions="17139 1" Format="HDF">tc_crack.h5:/Function/c/1080_000004885027</DataItem>
         </Attribute>
       </Grid>
       <Grid Name="c" GridType="Uniform">
         <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
-        <Time Value="1800" />
+        <Time Value="1134.0001408944286" />
         <Attribute Name="c" AttributeType="Scalar" Center="Node">
-          <DataItem Dimensions="29377 1" Format="HDF">tc_crack.h5:/Function/c/1800</DataItem>
+          <DataItem Dimensions="17139 1" Format="HDF">tc_crack.h5:/Function/c/1134_0001408944286</DataItem>
+        </Attribute>
+      </Grid>
+      <Grid Name="c" GridType="Uniform">
+        <xi:include xpointer="xpointer(/Xdmf/Domain/Grid[@GridType='Uniform'][1]/*[self::Topology or self::Geometry])" />
+        <Time Value="1800.0006115423798" />
+        <Attribute Name="c" AttributeType="Scalar" Center="Node">
+          <DataItem Dimensions="17139 1" Format="HDF">tc_crack.h5:/Function/c/1800_0006115423798</DataItem>
         </Attribute>
       </Grid>
     </Grid>
