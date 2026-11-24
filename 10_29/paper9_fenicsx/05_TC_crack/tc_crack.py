@@ -29,7 +29,7 @@ import tbc_common as tbc
 import explicit_pfczm as ex
 
 ap = argparse.ArgumentParser()
-ap.add_argument("--tsim", type=float, default=6.0e-6, help="simulated duration of the 30 min cooling (s)")
+ap.add_argument("--tsim", type=float, default=1.2e-5, help="simulated duration of the 30 min cooling (s)")
 ap.add_argument("--eta", type=float, default=1.0e-5, help="phase-field viscosity (N s/mm^2); paper Sec. 5.2: 1e-8 kN s/mm^2")
 ap.add_argument("--damage", type=int, default=1)
 ap.add_argument("--h", type=float, default=0.0002)
